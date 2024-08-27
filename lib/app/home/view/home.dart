@@ -8,35 +8,94 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          appBackgound(context),
-          Container(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Stack(
             alignment: Alignment.center,
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomTextfield(
-                  hinttext: 'Product Name',
-                ),
-                CustomTextfield(
-                  hinttext: 'Product Code',
-                ),
-                CustomTextfield(
-                  hinttext: 'Product Image Url',
-                ),
-                CustomTextfield(
-                  hinttext: 'Utit Price',
-                ),
-                CustomTextfield(
-                  hinttext: 'Total Price',
-                ),
-              ],
-            ),
-          )
-        ],
+            children: [
+              appBackgound(context),
+              Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CustomTextfield(
+                          hinttext: 'Product Name',
+                        ),
+                        const CustomTextfield(
+                          hinttext: 'Product Code',
+                        ),
+                        const CustomTextfield(
+                          hinttext: 'Product Image Url',
+                        ),
+                        const CustomTextfield(
+                          hinttext: 'Utit Price',
+                        ),
+                        const CustomTextfield(
+                          hinttext: 'Total Price',
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(width: 0.2),
+                                  borderRadius: BorderRadius.circular(6)),
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 15),
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: DropdownButton(
+                                  value: '',
+                                  items: const [
+                                    DropdownMenuItem(
+                                      value: '',
+                                      child: Text(
+                                        'Select Value',
+                                      ),
+                                    ),
+                                    DropdownMenuItem(
+                                      value: '1',
+                                      child: Text(
+                                        '1',
+                                      ),
+                                    ),
+                                    DropdownMenuItem(
+                                      value: '2',
+                                      child: Text(
+                                        '2',
+                                      ),
+                                    ),
+                                    DropdownMenuItem(
+                                      value: '3',
+                                      child: Text(
+                                        '3',
+                                      ),
+                                    ),
+                                    DropdownMenuItem(
+                                      value: '4',
+                                      child: Text(
+                                        '4',
+                                      ),
+                                    ),
+                                  ],
+                                  onChanged: (value) {},
+                                  underline: Container(),
+                                  isExpanded: true,
+                                ),
+                              )),
+                        ),
+                        const SizedBox(height: 20.0),
+                        Container(
+                            child: ElevatedButton(
+                                onPressed: () {}, child: Text('data')))
+                      ]))
+            ],
+          ),
+        ),
       ),
     );
   }
